@@ -23,20 +23,20 @@ variable "backup_subnet_name" {
 # ssh keys
 variable "security_compartment_id" {
   description = "(Required) (Updatable) The name of the compartment for security resources."
-  type = string
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "secret_name" {
   description = "(Required) (Updatable) The name of the secret where the ssh key is stored."
-  type = string
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "ssh_public_keys" {
   description = "(Required) (Updatable) The public key portion of one or more key pairs used for SSH access to the cloud VM cluster."
   type        = list(string)
-  default = null
+  default     = null
 }
 
 # exa infra
@@ -134,11 +134,11 @@ variable "db_node_storage_size_in_gbs" {
 variable "freeform_tags" {
   description = "simple key-value pairs to tag the created resources using freeform OCI Free-form tags."
   type        = map(any)
-  default = {}
+  default     = {}
 }
 
 variable "defined_tags" {
   description = "simple key-value pairs to tag the created resources using freeform OCI Free-form tags."
   type        = map(any)
-  default = {}
+  default     = {}
 }
