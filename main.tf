@@ -5,7 +5,7 @@ locals {
   cloud_exadata_infrastructure_id = data.oci_database_cloud_exadata_infrastructures.exa_inf.cloud_exadata_infrastructures[0].id
   default_freeform_tags = {
     terraformed = "Please do not edit manually"
-    module      = "oracle-terraform-oci-exa-infra"
+    module      = "oracle-terraform-oci-exa-cluster"
   }
   merged_freeform_tags = merge(var.freeform_tags, local.default_freeform_tags)
   #db_servers = values(data.oci_database_db_servers.db_servers.db_servers[*].id)
