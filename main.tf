@@ -22,7 +22,7 @@ resource "oci_database_cloud_vm_cluster" "main" {
   display_name                    = var.cluster_display_name
   gi_version                      = var.gi_version
   hostname                        = var.hostname
-  ssh_public_keys                 = var.ssh_public_keys == null ? [base64decode(data.oci_secrets_secretbundle.bundle[0].secret_bundle_content.0.content)] : var.ssh_public_keys
+  ssh_public_keys                 = [trimspace(base64decode(data.oci_secrets_secretbundle.bundle[0].secret_bundle_content.0.content))] #var.ssh_public_keys == null ? [base64decode(data.oci_secrets_secretbundle.bundle[0].secret_bundle_content.0.content)] : var.ssh_public_keys
   subnet_id                       = local.subnet_id
 
   #Optional
