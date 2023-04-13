@@ -96,7 +96,7 @@ variable "is_sparse_diskgroup_enabled" {
 variable "license_model" {
   description = "(Optional) (Updatable) The Oracle license model that applies to the cloud VM cluster. The default is BRING_YOUR_OWN_LICENSE."
   type        = string
-  default     = "LICENSE_INCLUDED"
+  default     = "BRING_YOUR_OWN_LICENSE"
 }
 
 variable "memory_size_in_gbs" {

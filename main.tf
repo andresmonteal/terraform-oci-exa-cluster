@@ -8,8 +8,8 @@ locals {
     module      = "oracle-terraform-oci-exa-cluster"
   }
   merged_freeform_tags = merge(var.freeform_tags, local.default_freeform_tags)
-  #db_servers = values(data.oci_database_db_servers.db_servers.db_servers[*].id)
-  db_servers = compact(flatten([for db_server in data.oci_database_db_servers.db_servers.db_servers : db_server.id]))
+  # adds support for multi vm cluster and single cluster
+  db_servers = var.db_node_storage_size_in_gbs == null ? null : compact(flatten([for db_server in data.oci_database_db_servers.db_servers.db_servers : db_server.id]))
 }
 
 # This resource provides the Cloud Vm Cluster resource in Oracle Cloud Infrastructure Database service.
