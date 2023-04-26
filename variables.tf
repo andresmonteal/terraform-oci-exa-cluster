@@ -135,12 +135,6 @@ variable "scan_listener_port_tcp" {
   default     = "1521"
 }
 
-variable "listener_port" {
-  description = "(Optional) The port number configured for the listener on the cloud VM cluster."
-  type        = string
-  default     = "1521"
-}
-
 # tags
 
 variable "freeform_tags" {

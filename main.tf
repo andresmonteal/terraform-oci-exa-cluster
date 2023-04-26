@@ -38,7 +38,6 @@ resource "oci_database_cloud_vm_cluster" "main" {
   ocpu_count                  = var.ocpu_count
   time_zone                   = var.time_zone
   scan_listener_port_tcp      = var.scan_listener_port_tcp
-  listener_port               = var.listener_port
 
   # Tags
   defined_tags  = var.defined_tags
