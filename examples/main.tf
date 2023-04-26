@@ -29,7 +29,8 @@ module "exa-cluster" {
   data_storage_size_in_tbs    = each.value["data_storage_size_in_tbs"]
   db_node_storage_size_in_gbs = each.value["db_node_storage_size_in_gbs"]
   time_zone                   = lookup(each.value, "time_zone", "America/Bogota")
-  scan_listener_port_tcp      = lookup(each.value, "listener_port", "1521")
+  scan_listener_port_tcp      = lookup(each.value, "scan_listener_port", "1521")
+  listener_port               = lookup(each.value, "listener_port", "1521")
 
   # tags
   defined_tags  = lookup(each.value, "defined_tags", {})

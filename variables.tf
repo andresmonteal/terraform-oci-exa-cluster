@@ -130,7 +130,13 @@ variable "db_node_storage_size_in_gbs" {
 }
 
 variable "scan_listener_port_tcp" {
-  description = " (Optional) The TCP Single Client Access Name (SCAN) port."
+  description = "(Optional) The TCP Single Client Access Name (SCAN) port."
+  type        = string
+  default     = "1521"
+}
+
+variable "listener_port" {
+  description = "(Optional) The port number configured for the listener on the cloud VM cluster."
   type        = string
   default     = "1521"
 }
