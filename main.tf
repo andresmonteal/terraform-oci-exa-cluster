@@ -14,7 +14,7 @@ locals {
 
 # This resource provides the Cloud Vm Cluster resource in Oracle Cloud Infrastructure Database service.
 resource "oci_database_cloud_vm_cluster" "main" {
-  #Required
+  # Required
   backup_subnet_id                = local.backup_subnet_id
   cloud_exadata_infrastructure_id = local.cloud_exadata_infrastructure_id
   compartment_id                  = var.compartment_id
@@ -25,7 +25,7 @@ resource "oci_database_cloud_vm_cluster" "main" {
   ssh_public_keys                 = [trimspace(base64decode(data.oci_secrets_secretbundle.bundle[0].secret_bundle_content.0.content))] #var.ssh_public_keys == null ? [base64decode(data.oci_secrets_secretbundle.bundle[0].secret_bundle_content.0.content)] : var.ssh_public_keys
   subnet_id                       = local.subnet_id
 
-  #Optional
+  # Optional
   cluster_name                = var.cluster_name
   data_storage_percentage     = var.data_storage_percentage
   is_local_backup_enabled     = var.is_local_backup_enabled
@@ -37,8 +37,16 @@ resource "oci_database_cloud_vm_cluster" "main" {
   db_servers                  = local.db_servers
   ocpu_count                  = var.ocpu_count
   time_zone                   = var.time_zone
+  scan_listener_port_tcp      = var.scan_listener_port_tcp
 
-  # tags
+  # Tags
   defined_tags  = var.defined_tags
   freeform_tags = local.merged_freeform_tags
+
+  # The timeouts block allows you to specify timeouts for certain operations, 12 hours is the default value
+  timeouts {
+    create = "12h"
+    update = "12h"
+    delete = "12h"
+  }
 }

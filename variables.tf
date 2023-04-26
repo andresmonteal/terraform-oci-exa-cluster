@@ -129,6 +129,12 @@ variable "db_node_storage_size_in_gbs" {
   default     = ""
 }
 
+variable "scan_listener_port_tcp" {
+  description = " (Optional) The TCP Single Client Access Name (SCAN) port."
+  type        = string
+  default     = "1521"
+}
+
 # tags
 
 variable "freeform_tags" {
