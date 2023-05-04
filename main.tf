@@ -51,6 +51,7 @@ resource "oci_database_cloud_vm_cluster" "main" {
   }
 
   lifecycle {
+    # This meta-argument, when set to true, will cause Terraform to reject with an error any plan that would destroy the resource
     prevent_destroy = true
   }
 }
