@@ -49,4 +49,8 @@ resource "oci_database_cloud_vm_cluster" "main" {
     update = "12h"
     delete = "12h"
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
